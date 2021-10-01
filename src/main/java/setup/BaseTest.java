@@ -1,22 +1,26 @@
 package setup;
 
 import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.annotations.*;
-import pageObjects.PageObject;
-
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
+import pageObjects.PageObject;
 
 public class BaseTest implements IDriver {
 
     private static AppiumDriver appiumDriver; // singleton
-    IPageObject po;
+    protected static IPageObject po;
 
     @Override
-    public AppiumDriver getDriver() { return appiumDriver; }
+    public AppiumDriver getDriver() {
+        return appiumDriver;
+    }
 
     public IPageObject getPo() {
         return po;
@@ -28,7 +32,6 @@ public class BaseTest implements IDriver {
         System.out.println("Before: app type - "+appType);
         setAppiumDriver(platformName, deviceName, browserName, app);
         setPageObject(appType, appiumDriver);
-
     }
 
     @AfterSuite(alwaysRun = true)
@@ -56,12 +59,9 @@ public class BaseTest implements IDriver {
 
         // Timeouts tuning
         appiumDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
     }
 
     private void setPageObject(String appType, AppiumDriver appiumDriver) throws Exception {
         po = new PageObject(appType, appiumDriver);
     }
-
-
 }
