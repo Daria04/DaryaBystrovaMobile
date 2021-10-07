@@ -7,7 +7,7 @@ import pageObjects.nativeApp.BudgetActivityPage;
 import pageObjects.nativeApp.LoginActivityPage;
 import pageObjects.PageObject;
 import service.Constants;
-import service.Utils;
+import service.UserData;
 import setup.BaseTest;
 
 public class nativeMobileTests extends BaseTest {
@@ -18,8 +18,8 @@ public class nativeMobileTests extends BaseTest {
         LoginActivityPage loginActivityPage = (LoginActivityPage) ((PageObject) getPo()).getSomePageObject();
         BudgetActivityPage budgetActivityPage = loginActivityPage
             .registrationNewAccount()
-            .registerNewAccount(Utils.getEmail(), Utils.getUsername(), Utils.getPassword())
-            .loginValidation(Utils.getEmail(), Utils.getPassword());
+            .registerNewAccount(UserData.getEmail(), UserData.getUsername(), UserData.getPassword())
+            .loginValidation(UserData.getEmail(), UserData.getPassword());
 
         assertThat(budgetActivityPage.getBudgetTitle()).isEqualTo(Constants.EXPECTED_TITLE);
         System.out.println("Simplest Android native test done");

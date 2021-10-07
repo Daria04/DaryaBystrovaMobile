@@ -1,11 +1,11 @@
 package pageObjects;
 
 import io.appium.java_client.AppiumDriver;
+import java.lang.reflect.Field;
 import org.openqa.selenium.WebElement;
 import pageObjects.nativeApp.LoginActivityPage;
+import pageObjects.webApp.SearchPage;
 import setup.IPageObject;
-
-import java.lang.reflect.Field;
 
 public class PageObject implements IPageObject {
 
@@ -16,7 +16,7 @@ public class PageObject implements IPageObject {
         System.out.println("Current app type: "+appType);
         switch(appType){
             case "web":
-                somePageObject = new WebPageObject(appiumDriver);
+                somePageObject = new SearchPage(appiumDriver);
                 break;
             case "native":
                 somePageObject = new LoginActivityPage(appiumDriver);

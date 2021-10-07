@@ -5,8 +5,9 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
+import pageObjects.BasePage;
 
-public class BudgetActivityPage extends AbstractBasePage {
+public class BudgetActivityPage extends BasePage {
 
     protected AppiumDriver appiumDriver;
 

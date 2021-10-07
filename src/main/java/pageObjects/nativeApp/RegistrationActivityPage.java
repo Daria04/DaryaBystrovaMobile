@@ -3,8 +3,9 @@ package pageObjects.nativeApp;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
+import pageObjects.BasePage;
 
-public class RegistrationActivityPage extends AbstractBasePage {
+public class RegistrationActivityPage extends BasePage {
 
     @AndroidFindBy(id = "platkovsky.alexey.epamtestapp:id/registration_email")
     WebElement emailBtn;
