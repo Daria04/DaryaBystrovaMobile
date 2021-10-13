@@ -83,7 +83,7 @@
         </profile>
 
         <profile>
-            <id>AndroidWeb</id>
+            <id>androidWeb</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
@@ -103,7 +103,7 @@
         </profile>
 
         <profile>
-            <id>androidCloudNative</id>
+            <id>androidNative</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
